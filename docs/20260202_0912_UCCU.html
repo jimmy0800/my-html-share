@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>寶貝好可愛</title>
+
+  <!-- Google Fonts：Noto Sans TC -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 
+                   'Segoe UI', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+      background:
+        radial-gradient(circle at top, #fff0f5, transparent 60%),
+        linear-gradient(135deg, #ffdde1, #ee9ca7);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.1em;
+      text-shadow:
+        0 4px 10px rgba(255,105,180,0.6),
+        0 0 20px rgba(255,182,193,0.8);
+      animation: bounce 1.2s ease-in-out infinite alternate;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    @keyframes bounce {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-15px); }
+    }
+
+    button {
+      margin-top: 28px;
+      padding: 12px 28px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      background: linear-gradient(135deg, #ff69b4, #ff85c1);
+      border: none;
+      border-radius: 999px;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(255,105,180,0.4);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 12px 30px rgba(255,105,180,0.6);
+    }
+
+    .heart {
+      position: absolute;
+      animation: floatUp 2.2s ease-out forwards;
+      pointer-events: none;
+      filter: drop-shadow(0 4px 8px rgba(255,105,180,0.6));
+    }
+
+    @keyframes floatUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.8);
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-220px) scale(1.6);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="title">寶貝好可愛 💖</h1>
+  <button onclick="addHeart()">送你一顆愛心</button>
+
+  <script>
+    const title = document.getElementById('title');
+
+    title.addEventListener('click', addHeart);
+
+    function addHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.innerText = '💖';
+
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.fontSize = Math.random() * 24 + 24 + 'px';
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 2200);
+    }
+  </script>
+
+</body>
+</html>
