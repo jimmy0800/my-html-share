@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>核心數值計算方式說明</title>
+    <style>
+        :root {
+            --primary-color: #2a7f7f;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #333;
+        }
+        body {
+            font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 { color: #222; }
+        h1 { border-bottom: 3px solid var(--primary-color); padding-bottom: 10px; text-align: center; }
+        h2 { border-left: 5px solid var(--primary-color); padding-left: 15px; margin-top: 30px; }
+        
+        .formula-box {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px dashed #ccc;
+            font-family: "Consolas", monospace;
+            margin: 10px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95em;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: center;
+            border: 1px solid #eee;
+        }
+        th { background-color: var(--primary-color); color: white; }
+        tr:nth-child(even) { background-color: #fafafa; }
+
+        .highlight { color: #d9534f; font-weight: bold; }
+        .footer-note {
+            font-style: italic;
+            color: #666;
+            border-left: 4px solid #ccc;
+            padding-left: 15px;
+            margin: 20px 0;
+        }
+        
+        @media (max-width: 600px) {
+            .container { padding: 20px; }
+            table { font-size: 0.8em; display: block; overflow-x: auto; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🔍 核心數值計算方式說明</h1>
+
+    <h2>1. BMR 基礎代謝率</h2>
+    <p>這是目前公認最準確的估算公式（Mifflin-St Jeor）：</p>
+    <div class="formula-box">
+        ♂ 男性：10 × 體重(kg) + 6.25 × 身高(cm) - 5 × 年齡 + 5<br>
+        ♀ 女性：10 × 體重(kg) + 6.25 × 身高(cm) - 5 × 年齡 - 161
+    </div>
+
+    <h2>2. TEF 食物熱效應</h2>
+    <p>蛋白質的 TEF 最高（約 20-30%），這就是為什麼提高蛋白質比例能變相增加代謝。</p>
+
+    <h2>3. NEAT 與 EAT</h2>
+    <ul>
+        <li><strong>NEAT (非運動產熱)：</strong> 走路、做家事。對女生來說，那 300-400 kcal 的散步至關重要。</li>
+        <li><strong>EAT (運動產熱)：</strong> 重訓能引發 <strong>EPOC (後燃效應)</strong>，讓運動後持續消耗。</li>
+    </ul>
+
+    <hr>
+
+    <h2>📊 兩人熱量與營養目標對照表</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>項目</th>
+                <th>👦 你 (36歲/175cm/70kg)</th>
+                <th>👧 女友 (32歲/157cm/55kg)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>BMR (基礎代謝)</strong></td>
+                <td>1,618 kcal</td>
+                <td>1,231 kcal</td>
+            </tr>
+            <tr>
+                <td><strong>TDEE (估計)</strong></td>
+                <td>約 2,300 kcal (重訓日)</td>
+                <td>約 1,650 kcal (含散步)</td>
+            </tr>
+            <tr>
+                <td><strong>建議攝取目標</strong></td>
+                <td><span class="highlight">2,050 kcal</span></td>
+                <td><span class="highlight">1,450 kcal</span></td>
+            </tr>
+            <tr>
+                <td><strong>蛋白質目標</strong></td>
+                <td>140g (保肌)</td>
+                <td>85-90g (維持)</td>
+            </tr>
+            <tr>
+                <td><strong>脂肪目標</strong></td>
+                <td>60g</td>
+                <td>45g</td>
+            </tr>
+            <tr>
+                <td><strong>碳水目標</strong></td>
+                <td>225 - 250g</td>
+                <td>175g</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>🍽️ 每日餐盤建議</h2>
+    <h3>【你的組合：重訓增肌】</h3>
+    <ul>
+        <li><strong>早餐 (260 kcal)：</strong> 水煮蛋 + 無糖豆漿 + 高蛋白。</li>
+        <li><strong>午餐：</strong> 1.5 碗雜糧飯 + 雞/魚主菜 + 2 份蔬菜。</li>
+        <li><strong>晚餐：</strong> 1 碗白飯 + 150g 瘦肉 + 大份量時蔬。</li>
+    </ul>
+
+    <h3>【女友組合：溫和減脂】</h3>
+    <ul>
+        <li><strong>早餐：</strong> 全麥吐司 + 荷包蛋 + 黑咖啡。</li>
+        <li><strong>午餐：</strong> 0.5 碗飯 + 掌心大主菜 + 大量蔬菜。</li>
+        <li><strong>晚餐：</strong> 0.5 碗飯 + 魚片/瘦肉 + 豆腐 + 燙青菜。</li>
+    </ul>
+
+    <div class="footer-note">
+        <strong>監測機制：</strong> 兩週後檢討。若體重沒動，代表活動量（NEAT）太低，需調降熱量或增加步數。
+    </div>
+</div>
+
+</body>
+</html>
